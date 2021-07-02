@@ -4,6 +4,7 @@ const path = require('path');
 
 // 改import相关
 function provideCompletionItems2(document, position, token, context) {
+  console.log('------provideCompletionItems2-------------------！');
   const line = document.lineAt(position);
   const projectPath = util.getProjectPath(document);
   const currentFile = (document.uri ? document.uri : document).fsPath;

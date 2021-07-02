@@ -16,7 +16,7 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onLanguage:javascript"
+		"*"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {},
