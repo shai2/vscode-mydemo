@@ -39,9 +39,9 @@ import { EventEmitter } from 'events';
 //   }
 // }
 
-vscode.workspace.onDidChangeTextDocument((e) =>
-  // emitter.emit('textChanged')
-);
+// vscode.workspace.onDidChangeTextDocument((e) =>
+//   emitter.emit('textChanged')
+// );
 
 // 改import相关
 function provideCompletionItems2(document, position, token, context) {
