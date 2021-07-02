@@ -14,97 +14,10 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:vscode-mydemo.helloWorld",
-		"onCommand:vscode-mydemo.aaaaaaaaaaaaaa",
-		"onCommand:vscode-mydemo.bbbbbbbbbbbbbb",
-		"onLanguage:json",
 		"onLanguage:javascript"
 	],
 	"main": "./dist/extension.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "vscode-mydemo.helloWorld",
-				"title": "Hello World"
-			},
-			{
-				"command": "vscode-mydemo.aaaaaaaaaaaaaa",
-				"title": "aaaaaaaaaaaaaa"
-			},
-			{
-				"command": "vscode-mydemo.bbbbbbbbbbbbbb",
-				"title": "bbbbbbbbbbbbbb"
-			},
-			{
-				"command": "vscode-mydemo.cccccccccccccc",
-				"title": "cccccccccccccc"
-			}
-		],
-		"menus": {
-			"editor/context": [
-				{
-					"when": "editorFocus",
-					"command": "vscode-mydemo.helloWorld",
-					"group": "navigation@1"
-				},
-				{
-					"when": "editorFocus",
-					"command": "vscode-mydemo.aaaaaaaaaaaaaa",
-					"group": "navigation@1"
-				},
-				{
-					"when": "editorFocus",
-					"command": "vscode-mydemo.bbbbbbbbbbbbbb",
-					"group": "navigation@1"
-				},
-				{
-					"when": "editorFocus",
-					"command": "vscode-mydemo.cccccccccccccc",
-					"group": "navigation@1"
-				}
-			],
-			"explorer/context": [
-				{
-					"command": "vscode-mydemo.aaaaaaaaaaaaaa",
-					"group": "navigation@1"
-				},
-				{
-					"command": "vscode-mydemo.bbbbbbbbbbbbbb",
-					"group": "navigation@1"
-				}
-			]
-		},
-		"configuration": {
-			"title": "KaiyiVscodeDemo",
-			"properties": {
-				"KaiyiVscodeDemo.aaaaaaaaaaaaaa": {
-					"type": "boolean",
-					"default": false,
-					"description": "kaiyi-test-description，其实是checkbox的label"
-				},
-				"KaiyiVscodeDemo.bbbbbbbbbbbbbb": {
-					"type": [
-						"string",
-						"null"
-					],
-					"default": null,
-					"markdownDescription": "这是markdown格式的例子，`代码块`，[百度](https://www.baidu.com) "
-				},
-				"KaiyiVscodeDemo.dddddddddddddd": {
-					"type": "string",
-					"default": "吃了吗",
-					"enum": [
-						"吃了吗",
-						"吃了"
-					],
-					"enumDescriptions": [
-						"enumDescriptions第一个字段",
-						"enumDescriptions第二个字段"
-					]
-				}
-			}
-		}
-	},
+	"contributes": {},
 	"scripts": {
 		"vscode:prepublish": "yarn run package",
 		"compile": "webpack",
