@@ -2,6 +2,8 @@ const vscode = require('vscode');
 const util = require('./util');
 const path = require('path');
 const fs = require('fs');
+import { EventEmitter } from 'events';
+// const emitter = new EventEmitter();
 
 /**
  * demo里自带的: 自动提示实现，这里模拟一个很简单的操作
@@ -12,30 +14,35 @@ const fs = require('fs');
  * @param {*} token
  * @param {*} context
  */
-function provideCompletionItems(document, position, token, context) {
-  const line = document.lineAt(position);
-  const projectPath = util.getProjectPath(document);
-  // 只截取到光标位置为止
-  const lineText = line.text.substring(0, position.character + 1);
-  // 简单匹配，只要当前光标前的字符串为`this.dependencies.`都自动带出所有的依赖
-  if (/(^|=| )\w+\.dependencies\.$/g.test(lineText)) {
-    // todo:没有这个文件，递归搜索文件夹?
-    const jsonDir = `${path.dirname(projectPath)}/package.json`;
-    console.log('目标目录', jsonDir);
-    // 这里如果不用fs.read，直接require(jsonDir)会有错不生效
-    const json = fs.readFileSync(jsonDir, 'utf8');
-    const jsonObj = JSON.parse(json);
-    const dependencies = Object.keys(jsonObj.dependencies || {}).concat(
-      Object.keys(jsonObj.devDependencies || {})
-    );
-    const res = dependencies.map((e) => {
-      // vscode.CompletionItemKind 表示提示的类型
-      return new vscode.CompletionItem(e, vscode.CompletionItemKind.Field);
-    });
-    console.log('res', res);
-    return res;
-  }
-}
+// function provideCompletionItems(document, position, token, context) {
+//   const line = document.lineAt(position);
+//   const projectPath = util.getProjectPath(document);
+//   // 只截取到光标位置为止
+//   const lineText = line.text.substring(0, position.character + 1);
+//   // 简单匹配，只要当前光标前的字符串为`this.dependencies.`都自动带出所有的依赖
+//   if (/(^|=| )\w+\.dependencies\.$/g.test(lineText)) {
+//     // todo:没有这个文件，递归搜索文件夹?
+//     const jsonDir = `${path.dirname(projectPath)}/package.json`;
+//     console.log('目标目录', jsonDir);
+//     // 这里如果不用fs.read，直接require(jsonDir)会有错不生效
+//     const json = fs.readFileSync(jsonDir, 'utf8');
+//     const jsonObj = JSON.parse(json);
+//     const dependencies = Object.keys(jsonObj.dependencies || {}).concat(
+//       Object.keys(jsonObj.devDependencies || {})
+//     );
+//     const res = dependencies.map((e) => {
+//       // vscode.CompletionItemKind 表示提示的类型
+//       return new vscode.CompletionItem(e, vscode.CompletionItemKind.Field);
+//     });
+//     console.log('res', res);
+//     return res;
+//   }
+// }
+
+vscode.workspace.onDidChangeTextDocument((e) =>
+  // emitter.emit('textChanged')
+);
+
 // 改import相关
 function provideCompletionItems2(document, position, token, context) {
   const line = document.lineAt(position);

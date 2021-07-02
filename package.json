@@ -1,10 +1,11 @@
 {
-	"name": "vscode-mydemo",
-	"displayName": "vscode-mydemo",
-	"description": "vscode-mydemo",
+	"name": "shai-box",
+	"displayName": "shai-box",
+	"description": "这家伙很懒，什么都没有留下",
 	"version": "0.0.1",
 	"keywords": [
-		"kaiyi"
+		"kaiyi",
+		"shai2"
 	],
 	"engines": {
 		"vscode": "^1.55.0"
