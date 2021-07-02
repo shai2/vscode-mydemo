@@ -10,22 +10,31 @@ function provideCompletionItems2(document, position, token, context) {
   // 只截取到光标位置为止
   const lineText = line.text;
   let arr = lineText.match(/^import.*from(.*)/);
+  console.log('-------------------------！');
+  console.log('line======>', lineText, projectPath, arr);
   if (arr && arr.length > 1) {
+    console.log('目标文件=====>', arr[1]);
     let searchText = arr[1].replace(/^\W*/, '').replace(/\W*$/, '');
+    console.log('searchText=====>', searchText);
     // 始递归搜索文件夹
     let baseDir = path.dirname(projectPath);
+    console.log('baseDir=====>', baseDir);
     let fileList = util.readFileList(baseDir);
     let filterList = fileList.filter((e) =>
       e.replace(/^.*\//, '').includes(searchText)
     );
+    console.log('筛选后文件=====>', filterList);
+    console.log('-------------------------！');
     const tipArr = filterList.map((e) => {
       let reltivePath = util.relativeDir(e, currentFile);
+      console.log(1111111, currentFile, e, reltivePath);
       // vscode.CompletionItemKind 表示提示的类型
       return new vscode.CompletionItem(
         reltivePath,
         vscode.CompletionItemKind.Field
       );
     });
+    console.log('tipArr', tipArr);
     return tipArr;
   }
 }
