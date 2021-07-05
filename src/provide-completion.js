@@ -2,8 +2,6 @@ const vscode = require('vscode');
 const util = require('./util');
 const path = require('path');
 const fs = require('fs');
-import { EventEmitter } from 'events';
-// const emitter = new EventEmitter();
 
 /**
  * demo里自带的: 自动提示实现，这里模拟一个很简单的操作
@@ -38,10 +36,6 @@ import { EventEmitter } from 'events';
 //     return res;
 //   }
 // }
-
-// vscode.workspace.onDidChangeTextDocument((e) =>
-//   emitter.emit('textChanged')
-// );
 
 // 改import相关
 function provideCompletionItems2(document, position, token, context) {

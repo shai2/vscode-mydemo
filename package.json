@@ -20,7 +20,7 @@
 		"onLanguage:json",
 		"onLanguage:javascript"
 	],
-	"main": "./dist/extension.js",
+	"main": "./src/extension.ts",
 	"contributes": {
 		"commands": [
 			{

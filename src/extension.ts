@@ -1,10 +1,10 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+const vscode = require('vscode');
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
+exports.activate = (context) => {
   console.log('-----------------------------------------------');
   console.log('Congratulations, your extension "vscode-mydemo" is now active!');
   console.log('-----------------------------------------------');
@@ -43,7 +43,7 @@ export function activate(context: vscode.ExtensionContext) {
   // require('./file-peeker')(context);
   // webview
   require('./webview')(context);
-}
+};
 
 // this method is called when your extension is deactivated
-export function deactivate() {}
+exports.deactivate = () => {};
