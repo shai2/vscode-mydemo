@@ -46,19 +46,18 @@ const util = {
     }
     // console.log('workspaceFolders=====>', workspaceFolders);
     workspaceFolders.forEach((e) => {
+      // console.log(555555, currentFile.indexOf(e), currentFile, e);
       // currentFile为完成文件路径 包含workspaceFolder就说明是当前文件夹下
       if (currentFile.indexOf(e) === 0) {
-        console.log(
-          'workspaceFolders往下找一级=====>',
-          currentFile,
-          e,
-          currentFile.indexOf(e)
-        );
+        // console.log(
+        //   'workspaceFolders往下找一级=====>',
+        // );
         projectPath = e;
       }
     });
     if (!projectPath) {
-      this.showError('获取工程根路径异常！');
+      console.log('获取工程根路径异常！');
+      // this.showError('获取工程根路径异常！');
       return '';
     }
     return projectPath;

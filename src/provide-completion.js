@@ -22,13 +22,14 @@ function provideCompletionItems2(document, position, token, context) {
     console.log('baseDir=====>', baseDir);
     let fileList = util.readFileList(baseDir);
     let filterList = fileList.filter((e) =>
-      e.replace(/^.*\//, '').includes(searchText)
+      // e.replace(/^.*\//, '').includes(searchText)
+      e.includes(searchText)
     );
     console.log('筛选后文件=====>', filterList);
     console.log('-------------------------！');
     const tipArr = filterList.map((e) => {
       let reltivePath = util.relativeDir(e, currentFile);
-      console.log(1111111, currentFile, e, reltivePath);
+      // console.log(1111111, currentFile, e, reltivePath);
       // vscode.CompletionItemKind 表示提示的类型
       return new vscode.CompletionItem(
         reltivePath,
@@ -48,17 +49,32 @@ function provideCompletionItems2(document, position, token, context) {
 function resolveCompletionItem(item, token) {
   return null;
 }
-// TODO:不生效
+const fileType = [
+  'typescript',
+  'typescript react',
+  'tsx',
+  'javascript',
+  'vue',
+  'react',
+  'css',
+  'less',
+  'scss',
+  'sass',
+  'stylus',
+];
+
 module.exports = function (context) {
   // 注册代码建议提示，只有当按下“.”时才触发
-  context.subscriptions.push(
-    vscode.languages.registerCompletionItemProvider(
-      ['typescript', 'javascript', 'vue', 'react'],
-      {
-        provideCompletionItems: provideCompletionItems2,
-        resolveCompletionItem,
-      },
-      ['s', 'v']
+  fileType.map((e) =>
+    context.subscriptions.push(
+      vscode.languages.registerCompletionItemProvider(
+        e,
+        {
+          provideCompletionItems: provideCompletionItems2,
+          resolveCompletionItem,
+        },
+        ['s', 'v']
+      )
     )
   );
 };
