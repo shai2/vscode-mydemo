@@ -4,7 +4,7 @@ const vscode = require('vscode');
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
-exports.activate = (context) => {
+exports.activate = (context: any) => {
   console.log('“vscode-mydemo”激活');
   // 自动补全代码
   require('./provide-completion')(context);

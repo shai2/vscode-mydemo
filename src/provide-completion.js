@@ -10,10 +10,10 @@ function provideCompletionItems2(document, position, token, context) {
   const currentFile = (document.uri ? document.uri : document).fsPath;
   // 只截取到光标位置为止
   const lineText = line.text;
-  let arr = lineText.match(/^import.*from(.*)/);
+  let arr = lineText.match(/^import.*from.*(\w+)/);
   console.log('-------------------------！');
   console.log('line======>', lineText, projectPath, arr);
-  if (arr && arr.length > 1) {
+  if (arr && arr?.[1]) {
     console.log('目标文件=====>', arr[1]);
     let searchText = arr[1].replace(/^\W*/, '').replace(/\W*$/, '');
     console.log('searchText=====>', searchText);
@@ -50,21 +50,20 @@ function resolveCompletionItem(item, token) {
   return null;
 }
 const fileType = [
-  'typescript',
-  'typescript react',
-  'tsx',
-  'javascript',
   'vue',
-  'react',
+  'typescript',
+  'typescriptreact',
+  'javascript',
+  'javascriptreact',
   'css',
   'less',
   'scss',
   'sass',
   'stylus',
+  'plaintext',
 ];
 
 module.exports = function (context) {
-  // 注册代码建议提示，只有当按下“.”时才触发
   fileType.map((e) =>
     context.subscriptions.push(
       vscode.languages.registerCompletionItemProvider(
@@ -78,3 +77,16 @@ module.exports = function (context) {
     )
   );
 };
+
+// module.exports = function (context) {
+//   context.subscriptions.push(
+//     vscode.languages.registerCompletionItemProvider(
+//       'vue',
+//       {
+//         provideCompletionItems: provideCompletionItems2,
+//         resolveCompletionItem,
+//       },
+//       ['s', 'x']
+//     )
+//   );
+// };
