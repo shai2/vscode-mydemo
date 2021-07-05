@@ -18,7 +18,7 @@
 	"activationEvents": [
 		"*"
 	],
-	"main": "./src/extension.ts",
+	"main": "./src/extension",
 	"contributes": {},
 	"scripts": {
 		"vscode:prepublish": "yarn run package",
