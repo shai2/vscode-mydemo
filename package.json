@@ -8,6 +8,13 @@
 		"kaiyi",
 		"shai2"
 	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/shai2/vscode-plugin.git"
+	},
+	"bugs": {
+		"url": "https://github.com/shai2/vscode-plugin/issues"
+	},
 	"icon": "images/icon.png",
 	"engines": {
 		"vscode": "^1.57.0"
