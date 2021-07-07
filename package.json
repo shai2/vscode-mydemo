@@ -3,7 +3,7 @@
 	"displayName": "shai2-box",
 	"publisher": "shai2",
 	"description": "这家伙很懒，什么都没有留下",
-	"version": "0.0.13",
+	"version": "0.0.14",
 	"keywords": [
 		"kaiyi",
 		"shai2"
@@ -18,7 +18,7 @@
 	"activationEvents": [
 		"*"
 	],
-	"main": "./src/extension.js",
+	"main": "./extension.js",
 	"contributes": {
 		"commands": [
 			{

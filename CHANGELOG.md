@@ -1,9 +1,9 @@
 # Change Log
 
-## 0.0.7
+All notable changes to the "vscode-myplugin" extension will be documented in this file.
 
-- init
+Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## 0.0.8
+## [Unreleased]
 
-- umi 的@xxx 路径优先
+- Initial release
