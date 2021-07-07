@@ -294,7 +294,10 @@ const util = {
     files.forEach((item, index) => {
       var fullPath = path.join(dir, item);
       const stat = fs.statSync(fullPath);
-      if (item.startsWith('.') || ['node_modules', 'dist'].includes(item)) {
+      if (
+        (item.startsWith('.') && !item.startsWith('.umirc')) ||
+        ['node_modules', 'dist'].includes(item)
+      ) {
         // 什么都不做
       } else if (stat.isDirectory()) {
         // console.log('递归文件', path.join(dir, item));

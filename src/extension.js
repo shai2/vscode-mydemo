@@ -8,6 +8,19 @@ exports.activate = (context) => {
   console.log('“vscode-mydemo”激活');
   // 自动补全代码
   require('./provide-completion')(context);
+
+  // helloWorld
+  let disposable = vscode.commands.registerCommand(
+    'vscode-myplugin.helloWorld',
+    function () {
+      // The code you place here will be executed every time your command is executed
+
+      // Display a message box to the user
+      vscode.window.showInformationMessage('Hello World from vscode-myplugin!');
+    }
+  );
+
+  context.subscriptions.push(disposable);
 };
 
 // this method is called when your extension is deactivated

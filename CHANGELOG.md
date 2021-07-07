@@ -1,5 +1,9 @@
 # Change Log
 
-## 初始化
+## 0.0.7
 
-- Initial release
+- init
+
+## 0.0.8
+
+- umi 的@xxx 路径优先

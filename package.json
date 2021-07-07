@@ -3,7 +3,7 @@
 	"displayName": "shai2-box",
 	"publisher": "shai2",
 	"description": "这家伙很懒，什么都没有留下",
-	"version": "0.0.7",
+	"version": "0.0.13",
 	"keywords": [
 		"kaiyi",
 		"shai2"
@@ -18,8 +18,15 @@
 	"activationEvents": [
 		"*"
 	],
-	"main": "./src/extension",
-	"contributes": {},
+	"main": "./src/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "vscode-myplugin.helloWorld",
+				"title": "Hello World"
+			}
+		]
+	},
 	"scripts": {
 		"lint": "eslint .",
 		"pretest": "yarn run lint",
