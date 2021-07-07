@@ -4,7 +4,7 @@ const vscode = require('vscode');
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
-exports.activate = (context) => {
+exports.activate = (context: any) => {
   console.log('-----------------------------------------------');
   console.log('Congratulations, your extension "vscode-mydemo" is now active!');
   console.log('-----------------------------------------------');
@@ -15,12 +15,15 @@ exports.activate = (context) => {
   );
   // 获取文件路径getCurrentFilePath
   context.subscriptions.push(
-    vscode.commands.registerCommand('vscode-mydemo.aaaaaaaaaaaaaa', (uri) => {
-      console.log(uri, uri);
-      vscode.window.showInformationMessage(
-        `当前文件(夹)路径是：${uri ? uri.path : '空'}`
-      );
-    })
+    vscode.commands.registerCommand(
+      'vscode-mydemo.aaaaaaaaaaaaaa',
+      (uri: any) => {
+        console.log(uri, uri);
+        vscode.window.showInformationMessage(
+          `当前文件(夹)路径是：${uri ? uri.path : '空'}`
+        );
+      }
+    )
   );
   // 打开文件
   context.subscriptions.push(
@@ -28,9 +31,11 @@ exports.activate = (context) => {
       let uri = vscode.Uri.file(
         '/Users/shai2/飞书深诺项目/cm_web/src/pages/enter_manage/remittance/services/index.js'
       );
-      vscode.commands.executeCommand('vscode.openFolder', uri).then((res) => {
-        console.log(res);
-      });
+      vscode.commands
+        .executeCommand('vscode.openFolder', uri)
+        .then((res: any) => {
+          console.log(res);
+        });
     })
   );
   // 跳转到定义，只对package.json生效

@@ -1,8 +1,9 @@
 {
 	"name": "shai-box",
 	"displayName": "shai-box",
+	"publisher": "shai2",
 	"description": "这家伙很懒，什么都没有留下",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"keywords": [
 		"kaiyi",
 		"shai2"
