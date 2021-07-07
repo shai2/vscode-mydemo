@@ -22,7 +22,7 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "vscode-myplugin.helloWorld",
+				"command": "shai2.helloWorld",
 				"title": "Hello World"
 			}
 		]
