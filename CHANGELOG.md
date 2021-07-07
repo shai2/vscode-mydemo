@@ -1,9 +1,7 @@
-# Change Log
+## 0.0.7
 
-All notable changes to the "vscode-mydemo" extension will be documented in this file.
+- init
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## 0.0.13
 
-## [Unreleased]
-
-- Initial release
+- umi 的@xxx 路径优先
